@@ -1,11 +1,11 @@
 import express from "express";
-import userRoutes from "./routes/user.route.js";
-import authRoutes from "./routes/auth.route.js";
-import careerRoutes from "./routes/career.route.js";
-import topicRoutes from "./routes/topic.route.js";
-import messageFormRoutes from "./routes/messageForm.route.js";
+import userRoutes from "../routes/user.route.js";
+import authRoutes from "../routes/auth.route.js";
+import careerRoutes from "../routes/career.route.js";
+import topicRoutes from "../routes/topic.route.js";
+import messageFormRoutes from "../routes/messageForm.route.js";
 import cors from "cors";
-import "./connection.js";
+import "../connection.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
