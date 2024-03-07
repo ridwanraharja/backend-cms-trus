@@ -13,15 +13,11 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(
   cors({
-    //To allow requests from client
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:5173",
-      "http://127.0.0.1",
-      "http://104.142.122.231",
-    ],
+    origin: function (origin, callback) {
+      return callback(null, true);
+    },
+    optionsSuccessStatus: 200,
     credentials: true,
-    exposedHeaders: ["set-cookie"],
   })
 );
 
