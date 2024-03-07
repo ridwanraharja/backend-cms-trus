@@ -21,7 +21,9 @@ export const create = async (req, res, next) => {
   });
   try {
     const savedCareer = await newCareer.save();
-    res.status(201).json(savedCareer);
+    res
+      .status(201)
+      .json({ success: true, statusCode: 201, message: "Career created" });
   } catch (error) {
     next(error);
   }
@@ -65,6 +67,7 @@ export const getcareers = async (req, res, next) => {
       careers,
       totalCareers,
       lastMonthCareers,
+      success: true,
     });
   } catch (error) {
     next(error);
@@ -74,7 +77,11 @@ export const getcareers = async (req, res, next) => {
 export const deletecareer = async (req, res, next) => {
   try {
     await Career.findByIdAndDelete(req.params.careerId);
-    res.status(200).json("The career has been deleted");
+    res.status(200).json({
+      success: true,
+      statusCode: 200,
+      message: "The career has been deleted",
+    });
   } catch (error) {
     next(error);
   }
@@ -97,7 +104,9 @@ export const updatecareer = async (req, res, next) => {
       },
       { new: true }
     );
-    res.status(200).json(updatedCareer);
+    res
+      .status(200)
+      .json({ success: true, statusCode: 200, message: "Career updated" });
   } catch (error) {
     next(error);
   }
