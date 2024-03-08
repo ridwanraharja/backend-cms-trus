@@ -64,11 +64,8 @@ export const signin = async (req, res, next) => {
     res
       .status(200)
       .cookie("access_token", token, {
-        domain: ".frontend-cms-trus.vercel.app",
         httpOnly: true,
-        sameSite: "Lax",
         secure: true,
-        path: "/auth/signin",
       })
       .json({ ...rest, success: true });
   } catch (error) {
