@@ -64,7 +64,7 @@ export const signin = async (req, res, next) => {
     res
       .status(200)
       .cookie("access_token", token, {
-        domain: ".vercel.app",
+        // domain: ".vercel.app",
         httpOnly: true,
         sameSite: "Lax",
         secure: true,
