@@ -13,7 +13,9 @@ const app = express();
 app.set("trust proxy", 1);
 app.use(
   cors({
-    origin: "https://frontend-cms-trus.vercel.app/",
+    origin: function (origin, callback) {
+      return callback(null, true);
+    },
     optionsSuccessStatus: 200,
     credentials: true,
   })
