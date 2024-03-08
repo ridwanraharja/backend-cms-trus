@@ -68,7 +68,7 @@ export const signin = async (req, res, next) => {
         httpOnly: true,
         sameSite: "Lax",
         secure: true,
-        path: "/",
+        path: "/auth/signin",
       })
       .json({ ...rest, success: true });
   } catch (error) {
