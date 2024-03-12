@@ -8,9 +8,13 @@ import {
 } from "../controllers/messageForm.controller.js";
 const router = express.Router();
 
-router.post("/create", create);
+router.post("/create", verifyToken, create);
 router.get("/getmessageforms", getmessageforms);
-router.delete("/deletemessageform/:messageformId", deletemessageform);
-router.put("/updatemessageform/:messageformId", updatemessageform);
+router.delete(
+  "/deletemessageform/:messageformId",
+  verifyToken,
+  deletemessageform
+);
+router.put("/updatemessageform/:messageformId", verifyToken, updatemessageform);
 
 export default router;
